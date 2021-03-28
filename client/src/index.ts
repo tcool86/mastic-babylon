@@ -1,6 +1,7 @@
 import "./index.css";
 
 import * as BABYLON from "babylonjs";
+import 'babylonjs-loaders';
 import Keycode from "keycode.js";
 
 import { client } from "./game/network";
@@ -23,7 +24,7 @@ var camera = new BABYLON.FollowCamera("camera1", new BABYLON.Vector3(0, 5, -10),
 camera.setTarget(BABYLON.Vector3.Zero());
 
 // This attaches the camera to the canvas
-camera.attachControl(canvas, true);
+camera.attachControl(true);
 
 // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
 var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
@@ -37,13 +38,22 @@ var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
 // Attach default camera mouse navigation
 // camera.attachControl(canvas);
 
+let testCharacter = null;
+// The first parameter can be set to null to load all meshes and skeletons
+BABYLON.SceneLoader.ImportMesh(["ObjObject"], 'src/assets/', "character-game-test.gltf", scene, function (meshes, particleSystems, skeletons) {
+    // do something with the meshes and skeletons
+    // particleSystems are always null for glTF assets
+    testCharacter = meshes[0];
+    testCharacter.scaling = new BABYLON.Vector3(0.2, 0.2, 0.2);
+});
+
 // Colyseus / Join Room
 client.joinOrCreate<StateHandler>("game").then(room => {
-    const playerViews: {[id: string]: BABYLON.Mesh} = {};
+    const playerViews: { [id: string]: BABYLON.Mesh } = {};
 
-    room.state.players.onAdd = function(player, key) {
+    room.state.players.onAdd = function (player, key) {
         // Our built-in 'sphere' shape. Params: name, subdivs, size, scene
-        playerViews[key] = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+        playerViews[key] = testCharacter.clone()//BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
 
         // Move the sphere upward 1/2 its height
         playerViews[key].position.set(player.position.x, player.position.y, player.position.z);
@@ -59,7 +69,7 @@ client.joinOrCreate<StateHandler>("game").then(room => {
         }
     };
 
-    room.state.players.onRemove = function(player, key) {
+    room.state.players.onRemove = function (player, key) {
         scene.removeMesh(playerViews[key]);
         delete playerViews[key];
     };
@@ -70,7 +80,7 @@ client.joinOrCreate<StateHandler>("game").then(room => {
 
     // Keyboard listeners
     const keyboard: PressedKeys = { x: 0, y: 0 };
-    window.addEventListener("keydown", function(e) {
+    window.addEventListener("keydown", function (e) {
         if (e.which === Keycode.LEFT) {
             keyboard.x = -1;
         } else if (e.which === Keycode.RIGHT) {
@@ -83,7 +93,7 @@ client.joinOrCreate<StateHandler>("game").then(room => {
         room.send('key', keyboard);
     });
 
-    window.addEventListener("keyup", function(e) {
+    window.addEventListener("keyup", function (e) {
         if (e.which === Keycode.LEFT) {
             keyboard.x = 0;
         } else if (e.which === Keycode.RIGHT) {
@@ -97,12 +107,12 @@ client.joinOrCreate<StateHandler>("game").then(room => {
     });
 
     // Resize the engine on window resize
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         engine.resize();
     });
 });
 
 // Scene render loop
-engine.runRenderLoop(function() {
+engine.runRenderLoop(function () {
     scene.render();
 });

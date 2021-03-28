@@ -1,0 +1,269 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v1.2.75",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "ObjObject",
+      "rotation": [
+        -0.298148512840271,
+        -0.624191164970398,
+        0.6363921761512756,
+        -0.34131789207458496
+      ],
+      "translation": [
+        3.982451915740967,
+        0.21350568532943726,
+        2.247220754623413
+      ]
+    },
+    {
+      "mesh": 1,
+      "name": "Cube",
+      "translation": [
+        -2.2889468669891357,
+        -0.7136668562889099,
+        9.417091369628906
+      ]
+    },
+    {
+      "name": "Light",
+      "rotation": [
+        0.16623280942440033,
+        0.7351980209350586,
+        -0.3000495135784149,
+        0.5846544504165649
+      ],
+      "translation": [
+        3.951423168182373,
+        6.148000717163086,
+        3.408695936203003
+      ]
+    },
+    {
+      "name": "Camera",
+      "rotation": [
+        0.664107084274292,
+        0.18465779721736908,
+        -0.1500263214111328,
+        0.7087703347206116
+      ],
+      "translation": [
+        9.337995529174805,
+        4.963680744171143,
+        14.182665824890137
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "palette",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "Material",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.4000000059604645
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "ObjObject",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "Cube",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 4,
+            "NORMAL": 5,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "source": 0
+    }
+  ],
+  "images": [
+    {
+      "name": "character-test",
+      "uri": "character-game-test_img0.png"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 1074,
+      "max": [
+        1.399999976158142,
+        1.2000000476837158,
+        -0.800000011920929
+      ],
+      "min": [
+        0.800000011920929,
+        -1.7000000476837158,
+        -5.699999809265137
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1074,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1074,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 2124,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 24,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 24,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 24,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5123,
+      "count": 36,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 12888,
+      "byteOffset": 0
+    },
+    {
+      "buffer": 0,
+      "byteLength": 12888,
+      "byteOffset": 12888
+    },
+    {
+      "buffer": 0,
+      "byteLength": 8592,
+      "byteOffset": 25776
+    },
+    {
+      "buffer": 0,
+      "byteLength": 4248,
+      "byteOffset": 34368
+    },
+    {
+      "buffer": 0,
+      "byteLength": 288,
+      "byteOffset": 38616
+    },
+    {
+      "buffer": 0,
+      "byteLength": 288,
+      "byteOffset": 38904
+    },
+    {
+      "buffer": 0,
+      "byteLength": 192,
+      "byteOffset": 39192
+    },
+    {
+      "buffer": 0,
+      "byteLength": 72,
+      "byteOffset": 39384
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "character-game-test_data.bin",
+      "byteLength": 39456
+    }
+  ]
+}
